@@ -15,16 +15,18 @@ Future<String> fetchQuote() async {
 
 // Exercise 2
 Future<void> downloadFile(String url, String filename) async {
-  var request = await HttpClient().getUrl(Uri.parse(url));
-  var response = await request.close();
-
-  var bytes = await response.fold([], (List<int> previous, List<int> element) {
-    return previous..addAll(element);
-  });
-
-  var file = File(filename);
-  await file.writeAsBytes(bytes);
-  print('File downloaded');
+  try {
+    final response = await http.get(Uri.parse(url));
+    if (response.statusCode == 200) {
+      final file = File(filename);
+      await file.writeAsBytes(response.bodyBytes);
+      print('File downloaded successfully: $filename');
+    } else {
+      print("Download failed with status code: ${response.statusCode}");
+    }
+  } on Exception catch (e) {
+    print("Error downloading file: $e");
+  }
 }
 
 // Exercise 3
@@ -35,13 +37,24 @@ Future<List<String>> fetchData() async {
 
 // Exercise 4
 Future<void> fetchWeather(String city) async {
-  var request = await HttpClient().getUrl(Uri.parse(
-      'https://api.open-meteo.com/v1/forecast?latitude=52.5200&longitude=13.4050'));
-  var response = await request.close();
-  var responseBody = await response.transform(utf8.decoder).join();
-  var data = jsonDecode(responseBody);
-  print(
-      'Temperature: ${data['current_weather']['temperature']}, Weather: ${data['current_weather']['description']}');
+  const baseUrl = 'https://api.open-meteo.com/v1/forecast';
+  final url = Uri.parse(
+      '$baseUrl?latitude=52.5200&longitude=13.4050'); // Replace with actual lat/lon for your city
+
+  try {
+    final response = await http.get(url); // Use http for consistent API usage
+    if (response.statusCode == 200) {
+      final responseBody = await response.transform(utf8.decoder).join();
+      final data = jsonDecode(responseBody);
+      final temperature = data['current_weather']['temperature'];
+      final weatherDescription = data['current_weather']['description'];
+      print('Temperature: $temperature, Weather: $weatherDescription');
+    } else {
+      print("Error fetching weather data: ${response.statusCode}");
+    }
+  } on Exception catch (e) {
+    print("Error fetching weather data: $e");
+  }
 }
 
 void main() async {
