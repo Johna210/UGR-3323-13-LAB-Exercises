@@ -17,31 +17,41 @@ class Screen3 extends StatelessWidget {
         Container(
             color: Colors.white,
             padding: const EdgeInsets.all(30.0),
-            child: const Column(
+            child: Column(
               children: [
-                Row(
-                  children: [
-                    Icon(
-                      Icons.check_circle,
-                      size: 35,
-                      color: Colors.blue,
+                Container(
+                  padding: const EdgeInsets.all(25),
+                  decoration: const BoxDecoration(
+                    color: Color.fromARGB(255, 215, 232, 246),
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
                     ),
-                    SizedBox(
-                      width: 30,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          'Completed',
-                          textAlign: TextAlign.start,
-                          style: TextStyle(
-                              color: Colors.blue, fontWeight: FontWeight.bold),
-                        ),
-                        Text('Order Completed 24 July 2024')
-                      ],
-                    )
-                  ],
+                  ),
+                  child: const Row(
+                    children: [
+                      Icon(
+                        Icons.check_circle,
+                        size: 35,
+                        color: Colors.blue,
+                      ),
+                      SizedBox(
+                        width: 30,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'Completed',
+                            textAlign: TextAlign.start,
+                            style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Text('Order Completed 24 July 2024')
+                        ],
+                      )
+                    ],
+                  ),
                 ),
                 Divider(height: 20),
                 Row(
@@ -140,7 +150,7 @@ class Screen3 extends StatelessWidget {
         ),
         Container(
             padding: const EdgeInsets.all(30.0),
-            height: 320,
+            height: 280,
             color: Colors.white,
             child: const Column(
               children: [
