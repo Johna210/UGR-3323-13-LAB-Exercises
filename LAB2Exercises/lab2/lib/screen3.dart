@@ -6,165 +6,362 @@ class Screen3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: const Color.fromARGB(255, 187, 187, 187),
       appBar: AppBar(
-        centerTitle: true,
-        title: const Row(
-          children: [Icon(Icons.arrow_back), Text('Order Details')],
-        ),
+        leading: const Icon(Icons.arrow_back),
+        title: const Text('Order Details'),
       ),
-      body: Column(children: [
-        Container(
-            color: Colors.white,
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                Container(
-                  padding: const EdgeInsets.all(25),
+      body: Container(
+        color: const Color.fromARGB(255, 223, 222, 222),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+          child: Column(
+            children: [
+              Container(
+                  padding: const EdgeInsets.all(30.0),
                   decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 215, 232, 246),
+                    color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(10),
                     ),
                   ),
-                  child: const Row(
+                  child: Column(
                     children: [
-                      Icon(
-                        Icons.check_circle,
-                        size: 35,
-                        color: Colors.blue,
+                      Container(
+                        padding: const EdgeInsets.all(15),
+                        decoration: const BoxDecoration(
+                          color: Color.fromARGB(255, 231, 247, 244),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(10),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            Container(
+                              width: 50,
+                              height: 50,
+                              decoration: const BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Color.fromARGB(255, 60, 183, 142),
+                              ),
+                              child: const Icon(
+                                Icons.check_circle_rounded,
+                                size: 25,
+                                color: Colors.white,
+                              ),
+                            ),
+                            const SizedBox(
+                              width: 20,
+                            ),
+                            const Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Completed',
+                                  textAlign: TextAlign.start,
+                                  style: TextStyle(
+                                      color: Color.fromARGB(255, 60, 183, 142),
+                                      fontSize: 17,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                                Text('Order Completed 24 July 2024')
+                              ],
+                            ),
+                            const SizedBox(
+                              width: 12,
+                            ),
+                            const Icon(
+                              Icons.arrow_forward_ios,
+                              size: 15,
+                            )
+                          ],
+                        ),
                       ),
-                      SizedBox(
-                        width: 30,
+                      const SizedBox(
+                        height: 20,
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            'Completed',
-                            textAlign: TextAlign.start,
-                            style: TextStyle(
-                                color: Colors.blue,
-                                fontWeight: FontWeight.bold),
+                            'Order Id',
+                            style: TextStyle(color: Colors.grey),
                           ),
-                          Text('Order Completed 24 July 2024')
+                          Spacer(),
+                          Text(
+                            '#524120',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      const Divider(height: 20),
+                      const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            'Order date ',
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          Spacer(),
+                          Text(
+                            '20 July 2024',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
                         ],
                       )
                     ],
+                  )),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                  color: Colors.white,
+                  padding: const EdgeInsets.all(30.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const Text(
+                        'Purchased Items',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/porsche.jpg',
+                            height: 50,
+                            width: 100,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Blue t-shirt',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                'Size: L',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                '\$50.00',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                            ],
+                          ),
+                          const Spacer(),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Color: yellow',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text('Qty:1')
+                            ],
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Image.asset(
+                            'assets/porsche.jpg',
+                            height: 50,
+                            width: 100,
+                          ),
+                          const SizedBox(
+                            width: 10,
+                          ),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Hoodie ROse',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                'Size: L',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 3,
+                              ),
+                              Text(
+                                '\$50.00',
+                                style: TextStyle(fontWeight: FontWeight.w900),
+                              )
+                            ],
+                          ),
+                          const Spacer(),
+                          const Column(
+                            crossAxisAlignment: CrossAxisAlignment.end,
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              Text(
+                                'Color: yellow',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text('Qty:1')
+                            ],
+                          )
+                        ],
+                      ),
+                    ],
+                  )),
+              const SizedBox(height: 10),
+              Container(
+                padding: const EdgeInsets.all(30.0),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
                   ),
                 ),
-                Divider(height: 20),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Text('Order Id'), Spacer(), Text('#52')],
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                child: (const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text('Order date '),
-                    Spacer(),
-                    Text('20 July 2024')
-                  ],
-                )
-              ],
-            )),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-            color: Colors.white,
-            padding: const EdgeInsets.all(30.0),
-            child: Column(
-              children: [
-                const Text('Purchased Items'),
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/porsche.jpg',
-                      height: 50,
-                      width: 100,
+                    Text(
+                      'Shiping Information',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
-                    const Column(
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
                       children: [
-                        Text('Blue t-shirt'),
-                        Text('Size: L'),
-                        Text('50.00')
+                        Text(
+                          'Name',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Spacer(),
+                        Text(
+                          'jacob Jones',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
-                    const Spacer(),
-                    const Column(
-                      children: [Text('Color: yellow'), Text('Qty:1')],
-                    )
-                  ],
-                ),
-                Row(
-                  children: [
-                    Image.asset(
-                      'assets/porsche.jpg',
-                      height: 50,
-                      width: 100,
+                    SizedBox(
+                      height: 5,
                     ),
-                    const Column(
+                    Row(
                       children: [
-                        Text('Hoodie ROse'),
-                        Text('Size: L'),
-                        Text('50.00')
+                        Text(
+                          'Phone Number',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Spacer(),
+                        Text(
+                          '(105)555_3652',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
                       ],
                     ),
-                    const Spacer(),
-                    const Column(
-                      children: [Text('Color: yellow'), Text('Qty:1')],
-                    )
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Address',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Spacer(),
+                        Text(
+                          '6140 Sunbrook',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Shipment',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Spacer(),
+                        Text(
+                          'Economy',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ],
+                )),
+              ),
+              const SizedBox(
+                height: 10,
+              ),
+              Container(
+                padding: const EdgeInsets.all(30.0),
+                decoration: const BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10),
+                  ),
+                ),
+                child: const Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Payment Information',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          'Payment Method',
+                          style: TextStyle(color: Colors.grey),
+                        ),
+                        Spacer(),
+                        Text(
+                          'cash on delivery',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ],
                 ),
-              ],
-            )),
-        const SizedBox(height: 10),
-        Container(
-          padding: const EdgeInsets.all(30.0),
-          color: Colors.white,
-          child: (const Column(
-            children: [
-              Text('Shiping Information', style: TextStyle(fontSize: 20)),
-              Row(
-                children: [Text('Name'), Spacer(), Text('jacob Jones')],
-              ),
-              Row(
-                children: [
-                  Text('Phone Number'),
-                  Spacer(),
-                  Text('(105)555_3652')
-                ],
-              ),
-              Row(
-                children: [Text('Address'), Spacer(), Text('6140 Sunbrook')],
-              ),
-              Row(
-                children: [Text('Shipment'), Spacer(), Text('Economy')],
-              ),
+              )
             ],
-          )),
+          ),
         ),
-        const SizedBox(
-          height: 10,
-        ),
-        Container(
-            padding: const EdgeInsets.all(30.0),
-            height: 280,
-            color: Colors.white,
-            child: const Column(
-              children: [
-                Text('Payment Information', style: TextStyle(fontSize: 20)),
-                Row(
-                  children: [
-                    Text('Payment Method'),
-                    Spacer(),
-                    Text('cash on delivery')
-                  ],
-                ),
-              ],
-            ))
-      ]),
+      ),
     );
   }
 }

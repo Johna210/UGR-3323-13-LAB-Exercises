@@ -7,7 +7,7 @@ import 'package:lab2/screen3.dart';
 void main() {
   runApp(
     const MaterialApp(
-      home: Screen3(),
+      home: Screen2(),
     ),
   );
 }
