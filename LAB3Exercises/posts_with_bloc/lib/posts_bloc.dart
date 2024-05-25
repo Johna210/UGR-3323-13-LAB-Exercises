@@ -15,7 +15,6 @@ class PostsBloc extends Bloc<PostsEvent, PostsStates> {
         } else if (event is InitialEvent) {
           emit(PostsInitial());
         } else if (event is FetchPostsEvent) {
-          // Handle the FetchPostsEvent
           final response = await http
               .get(Uri.parse('https://jsonplaceholder.typicode.com/posts'));
           if (response.statusCode == 200) {
